@@ -1,0 +1,31 @@
+package com.hts.test.designpattern.pattern.singleton.EnumSingleton;
+
+public enum TrafficLamp {
+
+    RED(30){
+        public  TrafficLamp nextLamp() {
+            return GREEN ;
+        }
+    },
+    GREEN(20){
+        public  TrafficLamp nextLamp() {
+            return YELLOW ;
+        }
+    },
+    YELLOW(10){
+        public  TrafficLamp nextLamp() {
+            return RED ;
+        }
+    } ;
+    public abstract TrafficLamp nextLamp() ;
+    private int time ;
+    private TrafficLamp(int time){
+        this.time = time ;
+        System.out.println(time);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(TrafficLamp.RED);
+    }
+
+}
